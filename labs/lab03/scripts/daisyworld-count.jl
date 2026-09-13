@@ -1,0 +1,38 @@
+# # Динамика численности маргариток
+# Этот скрипт моделирует эволюцию популяций черных и белых маргариток в мире Daisyworld.
+# Основная цель — наблюдение за процессом саморегуляции и стабилизации популяций (гомеостазом).
+
+using DrWatson
+@quickactivate "project"
+
+using Agents, DataFrames, CairoMakie
+include(srcdir("daisyworld.jl"))
+
+# ## Сбор данных
+# Мы определяем вспомогательные функции для фильтрации и подсчета агентов в зависимости от их типа (породы).
+black(a) = a.breed == :black
+white(a) = a.breed == :white
+
+# Настраиваем сбор данных: на каждом шаге будет подсчитываться количество черных и белых маргариток.
+adata = [(black, count), (white, count)]
+
+# ## Моделирование
+# Инициализируем модель с параметром солнечной светимости (solar_luminosity) равным 1.0.
+# Запускаем симуляцию на 1000 временных шагов (тиков).
+model = daisyworld(; solar_luminosity = 1.0)
+agent_df, model_df = run!(model, 1000; adata)
+
+# ## Визуализация
+# Создаем график динамики популяций, аналогичный рисунку 3.2 из лабораторной работы.
+figure = Figure(size = (600, 400))
+ax = figure[1, 1] = Axis(figure, xlabel = "Время (тики)", ylabel = "Количество маргариток")
+
+# Строим линии для черных и белых маргариток.
+blackl = lines!(ax, agent_df[!, :time], agent_df[!, :count_black], color = :black)
+whitel = lines!(ax, agent_df[!, :time], agent_df[!, :count_white], color = :orange)
+
+# Добавляем легенду в правой части графика (позиция [1, 2]).
+Legend(figure[1, 2], [blackl, whitel], ["Черные", "Белые"], labelsize = 12)
+
+# Отображение итогового графика:
+figure

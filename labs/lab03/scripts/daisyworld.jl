@@ -1,0 +1,45 @@
+# # Rapport Daisyworld : Simulation de la température
+# Par [Votre Nom] - Simulation de systèmes complexes.
+
+# Ce script explore la dynamique des marguerites noires et blanches
+# et leur impact sur la régulation thermique de la planète.
+
+using DrWatson
+@quickactivate
+
+using Agents, CairoMakie, DataFrames
+include(srcdir("daisyworld.jl"))
+
+# # Configuration visuelle
+# Nous définissons ici les fonctions de couleur (`ac`) et de forme (`am`).
+
+function ac(a)
+    if a.breed == :white
+        return :white
+    else
+        return :black
+    end
+end
+
+am(a) = '✿'
+
+# # Simulation et Visualisation
+# Nous initialisons le modèle et préparons l'affichage de la température.
+
+model = daisyworld()
+mkpath(plotsdir())
+
+plotkwargs = (
+    agent_color = ac, 
+    agent_size = 20, 
+    agent_marker = am,
+    heatarray = :temperature,
+    heatkwargs = (colorrange = (-20, 60), colormap = :viridis),
+)
+
+# # Résultats de l'étape initiale
+# Voici la capture du système à l'état T=0.
+
+fig, _ = abmplot(model; plotkwargs...)
+save(plotsdir("daisy_report_fig.png"), fig)
+fig

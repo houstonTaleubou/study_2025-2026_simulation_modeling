@@ -1,0 +1,57 @@
+# # Динамика Daisyworld при изменении светимости
+# В этом сценарии мы исследуем, как планета адаптируется к постепенному 
+# изменению солнечной активности (сценарий `:ramp`). Мы проследим за 
+# численностью маргариток, средней температурой и уровнем светимости.
+
+using DrWatson
+@quickactivate "project"
+
+using Agents, DataFrames, CairoMakie, Statistics
+include(srcdir("daisyworld.jl"))
+
+# ## Настройка сбора данных
+# Определяем функции для подсчета маргариток разных видов.
+black(a) = a.breed == :black
+white(a) = a.breed == :white
+adata = [(black, count), (white, count)]
+
+# Определяем функции для сбора данных о модели (средняя температура и светимость).
+temperature(model) = mean(model.temperature)
+mdata = [temperature, :solar_luminosity]
+
+# ## Запуск симуляции
+# Инициализируем модель с начальной светимостью 1.0 и сценарием постепенного изменения (`:ramp`).
+# Запускаем модель на 1000 шагов.
+model = daisyworld(; solar_luminosity = 1.0, scenario = :ramp)
+agent_df, model_df = run!(model, 1000; adata = adata, mdata = mdata)
+
+# ## Визуализация результатов
+# Создаем сложный график с тремя панелями для детального анализа.
+figure = Figure(size = (600, 800))
+
+# ### Панель 1: Численность популяций
+ax1 = figure[1, 1] = Axis(figure, ylabel = "Число маргариток")
+blackl = lines!(ax1, agent_df[!, :time], agent_df[!, :count_black], color = :black)
+whitel = lines!(ax1, agent_df[!, :time], agent_df[!, :count_white], color = :blue)
+figure[1, 2] = Legend(figure, [blackl, whitel], ["Черные", "Белые"])
+
+# ### Панель 2: Средняя температура
+ax2 = figure[2, 1] = Axis(figure, ylabel = "Температура")
+lines!(ax2, model_df[!, :time], model_df[!, :temperature], color = :red)
+
+# ### Панель 3: Изменение светимости солнца
+ax3 = figure[3, 1] = Axis(figure, xlabel = "Тики (время)", ylabel = "Светимость")
+lines!(ax3, model_df[!, :time], model_df[!, :solar_luminosity], color = :orange)
+
+# ## Оформление графика
+# Убираем лишние подписи осей X для верхних графиков, чтобы они не накладывались друг на друга.
+for ax in (ax1, ax2)
+    ax.xticklabelsvisible = false
+end
+
+# Сохраняем результат в папку с графиками.
+mkpath(plotsdir())
+save(plotsdir("daisy_luminosity.png"), figure)
+
+# Отображаем финальную фигуру:
+figure
