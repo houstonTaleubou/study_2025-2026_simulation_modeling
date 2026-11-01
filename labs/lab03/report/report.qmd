@@ -200,6 +200,36 @@ keywords: [имитационное моделирование, Julia, Agents.jl
 
 ![](./image/30.png){width=65% fig-pos="H"}
 
+\newpage
+
+![](./image/31.png){width=65% fig-pos="H"}
+
+![](./image/32.png){width=65% fig-pos="H"}
+
+\newpage
+
+![](./image/33.png){width=65% fig-pos="H"}
+
+![](./image/34.png){width=65% fig-pos="H"}
+
+\newpage
+
+![](./image/35.png){width=65% fig-pos="H"}
+
+![](./image/36.png){width=65% fig-pos="H"}
+
+\newpage
+
+![](./image/37.png){width=65% fig-pos="H"}
+
+![](./image/38.png){width=65% fig-pos="H"}
+
+\newpage
+
+![](./image/39.png){width=65% fig-pos="H"}
+
+![](./image/40.png){width=65% fig-pos="H"}
+
 
 \newpage
 

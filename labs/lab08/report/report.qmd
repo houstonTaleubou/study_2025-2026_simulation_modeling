@@ -67,43 +67,36 @@ keywords: [имитационное моделирование, Julia, SIR, SEIR
 
 Работа включает создание программы, базовый запуск и дополнительные эксперименты.
 
-\newpage
 
-## Структура программы (`sir_model.jl`)
 
-Создан файл `src/sir_model.jl`, реализующий ядро модели и логику событий.
+
 
 ![](./image/1.png){width=75% fig-pos="H"}
+\newpage
 
 ![](./image/2.png){width=75% fig-pos="H"}
 
 \newpage
 
-## Скрипт запуска (`sir_des.jl`)
-
-Создан файл `scripts/sir_des.jl` для запуска симуляции и построения графика временной динамики.
+\newpage
 
 ![](./image/3.png){width=75% fig-pos="H"}
+\newpage
 
 ![](./image/4.png){width=75% fig-pos="H"}
 
 \newpage
 
-## Анализ чувствительности к параметрам
-
-Проведено изменение параметров модели и сохранение результатов нескольких запусков.
-
 ![](./image/5.png){width=75% fig-pos="H"}
 
+\newpage
 ![](./image/6.png){width=75% fig-pos="H"}
+
+\newpage
 
 ![](./image/7.png){width=75% fig-pos="H"}
 
 \newpage
-
-## Детерминированная длительность болезни
-
-В функции `live` экспоненциально распределённое время болезни заменено фиксированным временем `1/m.γ`.
 
 ```julia
 # Исходный вариант
@@ -114,37 +107,31 @@ keywords: [имитационное моделирование, Julia, SIR, SEIR
 ```
 
 ![](./image/8.png){width=75% fig-pos="H"}
-
-\newpage
-
-## Оценка производительности
-
-Для оценки производительности использован пакет `BenchmarkTools`.
-
-```julia
-using BenchmarkTools
-@benchmark sir_run(des_model, tmax)
-```
-
 ![](./image/9.png){width=75% fig-pos="H"}
 
 \newpage
-
-## Вакцинация
-
-В модель добавлено событие вакцинации по таймеру.
+```
 
 ![](./image/10.png){width=75% fig-pos="H"}
 
 \newpage
 
-## Модель SEIR
-
-В модель введено латентное состояние `:E`: после заражения индивид переходит в E, а затем в инфекционное состояние I.
-
 ![](./image/11.png){width=75% fig-pos="H"}
 
+\newpage
+
 ![](./image/12.png){width=75% fig-pos="H"}
+\newpage
+
+![](./image/13.png){width=75% fig-pos="H"}
+
+\newpage
+
+![](./image/14.png){width=75% fig-pos="H"}
+
+\newpage
+
+![](./image/15.png){width=75% fig-pos="H"}
 
 \newpage
 

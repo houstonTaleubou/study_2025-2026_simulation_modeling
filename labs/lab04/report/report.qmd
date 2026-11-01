@@ -73,7 +73,10 @@ keywords: [имитационное моделирование, Julia, Agents.jl
 
 ![](./image/1.png){width=65% fig-pos="H"}
 
+
 ![](./image/2.png){width=65% fig-pos="H"}
+\newpage
+![](./image/3.png){width=65% fig-pos="H"}
 
 \newpage
 
@@ -86,12 +89,19 @@ keywords: [имитационное моделирование, Julia, Agents.jl
 ![](./image/4.png){width=65% fig-pos="H"}
 
 \newpage
+![](./image/5.png){width=65% fig-pos="H"}
+
+\newpage
 
 ## Базовый эксперимент — график динамики
 
 Построен график `plots/sir_basic_dynamics.png`, показывающий динамику восприимчивых, инфицированных, выздоровевших и общей численности популяции.
 
-![](./image/5.png){width=78% fig-pos="H"}
+![](./image/6.png){width=78% fig-pos="H"}
+
+![](./image/7.png){width=65% fig-pos="H"}
+\newpage
+![](./image/8.png){width=65% fig-pos="H"}
 
 \newpage
 
@@ -99,9 +109,11 @@ keywords: [имитационное моделирование, Julia, Agents.jl
 
 Выполнено исследование зависимости эпидемических показателей от коэффициента заразности с несколькими повторными запусками для учёта стохастичности.
 
-![](./image/6.png){width=65% fig-pos="H"}
+![](./image/9.png){width=65% fig-pos="H"}
 
-![](./image/7.png){width=65% fig-pos="H"}
+![](./image/10.png){width=65% fig-pos="H"}
+\newpage
+![](./image/11.png){width=65% fig-pos="H"}
 
 \newpage
 
@@ -109,7 +121,9 @@ keywords: [имитационное моделирование, Julia, Agents.jl
 
 Результаты экспериментов сохранены в `data/beta_scan_all.csv` и представлены графиком `plots/beta_scan.png`.
 
-![](./image/8.png){width=78% fig-pos="H"}
+![](./image/12.png){width=78% fig-pos="H"}
+\newpage
+![](./image/13.png){width=65% fig-pos="H"}
 
 \newpage
 
@@ -117,9 +131,13 @@ keywords: [имитационное моделирование, Julia, Agents.jl
 
 Исследовано влияние перемещения агентов между городами на время достижения пика заболеваемости и его величину. В начальный момент инфекция присутствует только в одном городе.
 
-![](./image/9.png){width=65% fig-pos="H"}
+![](./image/14.png){width=65% fig-pos="H"}
 
-![](./image/10.png){width=65% fig-pos="H"}
+![](./image/15.png){width=65% fig-pos="H"}
+\newpage
+![](./image/16.png){width=78% fig-pos="H"}
+\newpage
+![](./image/17.png){width=65% fig-pos="H"}
 
 \newpage
 
@@ -127,9 +145,13 @@ keywords: [имитационное моделирование, Julia, Agents.jl
 
 Выполнен поиск параметров, позволяющих одновременно снижать пик заболеваемости и долю умерших. В исходном отчёте для оптимизации используется алгоритм Borg MOEA из пакета `BlackBoxOptim`.
 
-![](./image/11.png){width=65% fig-pos="H"}
+![](./image/18.png){width=65% fig-pos="H"}
 
-![](./image/12.png){width=65% fig-pos="H"}
+![](./image/19.png){width=65% fig-pos="H"}
+\newpage
+![](./image/20.png){width=78% fig-pos="H"}
+\newpage
+![](./image/21.png){width=65% fig-pos="H"}
 
 \newpage
 
@@ -137,9 +159,25 @@ keywords: [имитационное моделирование, Julia, Agents.jl
 
 Подготовлена сводная визуализация `plots/comprehensive_analysis.png`, объединяющая результаты исследования пика эпидемии, смертности и выздоровления.
 
-![](./image/13.png){width=65% fig-pos="H"}
+![](./image/22.png){width=65% fig-pos="H"}
 
-![](./image/14.png){width=65% fig-pos="H"}
+![](./image/23.png){width=65% fig-pos="H"}
+
+\newpage
+![](./image/24.png){width=65% fig-pos="H"}
+
+
+\newpage
+![](./image/25.png){width=65% fig-pos="H"}
+
+\newpage
+![](./image/26.png){width=65% fig-pos="H"}
+
+\newpage
+![](./image/27.png){width=65% fig-pos="H"}
+
+\newpage
+![](./image/28.png){width=65% fig-pos="H"}
 
 \newpage
 
